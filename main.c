@@ -1,17 +1,4 @@
-#include <stdio.h>
-#include "libft/libft.h"
-
-typedef struct s_stack_elm {
-	int	num;
-	struct s_stack_elm *next;
-	struct s_stack_elm *previous;
-} t_stack_elm;
-
-typedef struct s_stack {
-	t_stack_elm	*top;
-	t_stack_elm *bottom;
-	int size;
-} t_stack;
+#include "push_swap.h"
 
 int check_individual_input(char *input)
 {
@@ -44,10 +31,7 @@ int	check_invalid_input(char **split)
 	while(split[i])
 	{
 		if(!check_individual_input(split[i]))
-		{
-			write(0, "ERROR\n", 6);
-			exit(1);
-		}
+			return (1);
 		j = i + 1;
 		while(split[j])
 		{
@@ -57,6 +41,8 @@ int	check_invalid_input(char **split)
 		}
 		i++;
 	}
+	if(split[0] == 0) // to eliminate the case where the binay is ran like: ./a.out ""
+		return (1);
 	return (0);
 }
 
@@ -66,7 +52,7 @@ char	**parse_input(char **argv)
 	int	j;
 	char *str;
 	char **split;
-	t_stack a;
+	// t_stack a;
 
 	str = ft_strdup("");
 	i = 1;
@@ -82,13 +68,32 @@ char	**parse_input(char **argv)
 		write(0, "ERROR\n", 6);
 		exit(1);
 	}
+	free(str);
 	return (split);
 }
 
 int main(int argc, char **argv)
 {
+	int 	i;
+	t_node	*elm;
 	char	**split;
+	t_node	*first_node;
+	t_stack	*a;
 	// parse input
 	split = parse_input(argv);
-	// create_stack(split);
+	a = stack_init();
+	i = 0;
+	while(split[i])
+	{
+		elm = new_node(ft_atoi(split[i]));
+		push_node_bottom(a, elm);
+		i++;
+	}
+	while(a->top)
+	{
+		printf("%d\n", a->top->num);
+		a->top = a->top->bellow;
+	}
+	// while (1);
+	
 }
