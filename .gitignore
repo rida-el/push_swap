@@ -1,0 +1,6 @@
+*.o
+*.dSYM
+*.out
+*.test.c
+*.gch
+libft.a
