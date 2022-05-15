@@ -13,7 +13,7 @@ typedef struct s_stack {
 	int size;
 } t_stack;
 
-int verify_individual_input(char *input)
+int check_individual_input(char *input)
 {
 	int		i;
 	long	num;
@@ -35,13 +35,6 @@ int verify_individual_input(char *input)
 	return (1);
 }
 
-int	ft_max(int i, int j)
-{
-	if(i > j)
-		return (i);
-	return (j);
-}
-
 int	check_invalid_input(char **split)
 {
 	int i;
@@ -50,7 +43,7 @@ int	check_invalid_input(char **split)
 	i = 0;
 	while(split[i])
 	{
-		if(!verify_individual_input(split[i]))
+		if(!check_individual_input(split[i]))
 		{
 			write(0, "ERROR\n", 6);
 			exit(1);
@@ -66,7 +59,8 @@ int	check_invalid_input(char **split)
 	}
 	return (0);
 }
-void read_numbers(char **argv)
+
+char	**parse_input(char **argv)
 {
 	int i;
 	int	j;
@@ -88,11 +82,13 @@ void read_numbers(char **argv)
 		write(0, "ERROR\n", 6);
 		exit(1);
 	}
+	return (split);
 }
 
 int main(int argc, char **argv)
 {
+	char	**split;
 	// parse input
-	read_numbers(argv);
-	// printf("%zu",ft_strlen("sss"));
+	split = parse_input(argv);
+	// create_stack(split);
 }
