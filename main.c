@@ -42,6 +42,30 @@ int	ft_max(int i, int j)
 	return (j);
 }
 
+int	check_invalid_input(char **split)
+{
+	int i;
+	int j;
+
+	i = 0;
+	while(split[i])
+	{
+		if(!verify_individual_input(split[i]))
+		{
+			write(0, "ERROR\n", 6);
+			exit(1);
+		}
+		j = i + 1;
+		while(split[j])
+		{
+			if(ft_atoi_long(split[i]) == ft_atoi_long(split[j]))
+				return (1);
+			j++;
+		}
+		i++;
+	}
+	return (0);
+}
 void read_numbers(char **argv)
 {
 	int i;
@@ -59,25 +83,10 @@ void read_numbers(char **argv)
 		i++;
 	}
 	split = ft_split(str, ' ');
-	i = 0;
-	while(split[i])
+	if(check_invalid_input(split))
 	{
-		if(!verify_individual_input(split[i]))
-		{
-			write(0, "ERROR\n", 6);
-			exit(1);
-		}
-		j = i + 1;
-		while(split[j])
-		{
-			if(ft_atoi_long(split[i]) == ft_atoi_long(split[j]))
-			{
-				write(0, "ERROR\n", 6);
-				exit(1);
-			}
-			j++;
-		}
-		i++;
+		write(0, "ERROR\n", 6);
+		exit(1);
 	}
 }
 
