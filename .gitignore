@@ -4,3 +4,4 @@
 *.test.c
 *.gch
 libft.a
+main
