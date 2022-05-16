@@ -24,12 +24,32 @@ int		check_invalid_input(char **split);
 char	**parse_input(char **argv);
 
 
-/* --- CHECK fucntions ---*/
+/* --- CHECK functions ---*/
 int	stack_is_empty(t_stack *stack);
 
+/* --- MOVES functions --- */
+void	sa(t_stack *b);
+void	sb(t_stack *b);
+void	ss(t_stack *a, t_stack b);
+
+void	pa(t_stack *a, t_stack *b);
+void	pb(t_stack *a, t_stack *b);
+
+void	ra(t_stack *a);
+void	rb(t_stack *b);
+void	rr(t_stack *a, t_stack *b);
+
+void	rra(t_stack *a);
+void	rrb(t_stack *b);
+void	rrr(t_stack *a, t_stack *b);
 
 /* --- STACK functions --- */
 t_stack	*stack_init(void);
 t_node	*new_node(int data);
+
 void	push_node_bottom(t_stack *stack, t_node *elem);
+void	push_node_top(t_stack *stack, t_node *node);
+
+void	pop_node_bottom(t_stack *stack);
+void	pop_node_top(t_stack *stack);
 #endif
