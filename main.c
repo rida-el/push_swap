@@ -89,11 +89,53 @@ int main(int argc, char **argv)
 		push_node_bottom(a, elm);
 		i++;
 	}
-	while(a->top)
+	// while(a->top)
+	// {
+	// 	printf("%d\n", a->top->num);
+	// 	a->top = a->top->bellow;
+	// }
+
+
+
+
+
+
+
+// TEST ZONE 
+	i = 0;
+	t_stack *b;
+	b = stack_init();
+	while(split[i])
 	{
-		printf("%d\n", a->top->num);
-		a->top = a->top->bellow;
+		elm = new_node(ft_atoi(split[i]));
+		push_node_bottom(b, elm);
+		i++;
 	}
-	// while (1);
-	
+
+	// ops
+	pb(a, b);
+	pa(a, b);
+	sa(a);
+	sb(b);
+	ss(a,b);
+	rb(b);
+	rr(a, b);
+
+	rrr(a,b);
+
+
+	// while(a->top)
+	// {
+	// 	printf("%d -- ", a->top->num);
+	// 	a->top = a->top->bellow;
+
+	// }
+	// printf("\n");
+	// while(b->top)
+	// {
+	// 	printf("%d -- ", b->top->num);
+	// 	b->top = b->top->bellow;
+	// }
+	// while(1);
+
 }
