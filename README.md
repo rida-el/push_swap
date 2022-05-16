@@ -4,7 +4,7 @@
    - [X] split args
    - [X] read individual numbers
 - [X] check for invalid input
-- [ ] store in stack
+- [X] store in stack
 - [ ] create moves funtions
   - [ ] sa - swap a: swap the first 2 elements at the top of stack a. (do nothing if there is only one or no elements).
   - [ ] sb - swap b: swap the first 2 elements at the top of stack b. (do nothing if there is only one or no elements).
