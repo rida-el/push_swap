@@ -19,7 +19,14 @@
   - [X] rrr - rrr: reverse rotate a and reverse rotate b at the same time.
 - [ ] Implement sorting algorithm
 
-
 Algo:
-- Indexing
+- [ ] copy stack into array
+- [ ] sort array
+- [ ] calculate P1 and P2 ( P1 = SIZE / {3 or 5 or 6} ---- P2 = P1 / 2)
+- [ ] S1 - Get value of Vp1 and Vp2
+- [ ] S2 - loop over stack, if (elm <= P1) {pb; if(elm <= P2) rb} else {ra}; || loop condition: only do P1 + 1 iteration (P1 is the index)
+- [ ] Repeat S1 AND S2 until stack A has only 1 element
+- [ ] S3 - ==> Now stack B has ALL elements except one
+- [ ] S4 - find index(MAX(stack B)); if(index <= size(stack B) / 2){ rb until TOP_STACK_B == MAX(stack B); then pa}; else {rrb until TOP_STACK_B == MAX(stack B); then pa}
+- [ ] S5 - Repeat S4 until STACK_B is empty.
 
