@@ -7,3 +7,5 @@ libft.a
 main
 checker
 compilation_command
+debug.c
+generators
