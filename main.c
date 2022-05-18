@@ -77,11 +77,13 @@ int main(int argc, char **argv)
 	int 	i;
 	t_node	*elm;
 	char	**split;
-	t_node	*first_node;
 	t_stack	*a;
+	t_stack	*b;
+
 	// parse input
 	split = parse_input(argv);
 	a = stack_init();
+	b = stack_init();
 	i = 0;
 	while(split[i])
 	{
@@ -89,40 +91,24 @@ int main(int argc, char **argv)
 		push_node_bottom(a, elm);
 		i++;
 	}
+	push_swap(a, b);
+
+// TEST ZONE 
 	// while(a->top)
 	// {
 	// 	printf("%d\n", a->top->num);
 	// 	a->top = a->top->bellow;
 	// }
-
-
-
-
-
-
-
-// TEST ZONE 
-	i = 0;
-	t_stack *b;
-	b = stack_init();
-	while(split[i])
-	{
-		elm = new_node(ft_atoi(split[i]));
-		push_node_bottom(b, elm);
-		i++;
-	}
-
-	// ops
-	pb(a, b);
-	pa(a, b);
-	sa(a);
-	sb(b);
-	ss(a,b);
-	rb(b);
-	rr(a, b);
-
-	rrr(a,b);
-
+	// i = 0;
+	// t_stack *b;
+	// b = stack_init();
+	// while(split[i])
+	// {
+	// 	elm = new_node(ft_atoi(split[i]));
+	// 	push_node_bottom(b, elm);
+	// 	i++;
+	// }
+	
 
 	// while(a->top)
 	// {
