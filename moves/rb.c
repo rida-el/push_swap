@@ -9,4 +9,6 @@ void	rb(t_stack *b)
 	node = new_node(b->top->num);
 	push_node_bottom(b, node);
 	pop_node_top(b);
+	ft_putstr_fd("rb\n", 1);
+
 }

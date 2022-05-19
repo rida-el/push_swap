@@ -9,4 +9,5 @@ void	rra(t_stack *a)
 	node = new_node(a->bottom->num);
 	push_node_top(a, node);
 	pop_node_bottom(a);
+	ft_putstr_fd("rra\n", 1);
 }

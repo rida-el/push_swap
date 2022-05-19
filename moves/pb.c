@@ -9,4 +9,6 @@ void	pb(t_stack *a, t_stack *b)
 	node = new_node(a->top->num);
 	push_node_top(b, node);
 	pop_node_top(a);
+	ft_putstr_fd("pb\n", 1);
+
 }

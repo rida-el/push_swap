@@ -11,4 +11,5 @@ void	sa(t_stack *a)
 	tmp = a->top->num;
 	a->top->num = a->top->bellow->num;
 	a->top->bellow->num = tmp;
+	ft_putstr_fd("sa\n", 1);
 }

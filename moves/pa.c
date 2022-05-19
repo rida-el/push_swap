@@ -9,4 +9,5 @@ void	pa(t_stack *a, t_stack *b)
 	node = new_node(b->top->num);
 	push_node_top(a, node);
 	pop_node_top(b);
+	ft_putstr_fd("pa\n", 1);
 }
