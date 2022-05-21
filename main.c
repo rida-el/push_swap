@@ -49,7 +49,6 @@ int	check_invalid_input(char **split)
 char	**parse_input(char **argv)
 {
 	int i;
-	int	j;
 	char *str;
 	char **split;
 	// t_stack a;
@@ -74,6 +73,7 @@ char	**parse_input(char **argv)
 
 int main(int argc, char **argv)
 {
+	(void)argc;
 	int 	i;
 	t_node	*elm;
 	char	**split;
