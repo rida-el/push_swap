@@ -10,3 +10,4 @@ compilation_command
 debug.c
 generators
 push_swap_tester
+push_swap
