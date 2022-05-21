@@ -2,7 +2,7 @@
 
 /* sb: swap b - swap the first 2 elements at the top of stack b. 
  * (do nothing if there is only one or no elements). */
-void	sb(t_stack *b)
+void	sb(t_stack *b, int flag)
 {
 	int	tmp;
 
@@ -11,5 +11,6 @@ void	sb(t_stack *b)
 	tmp = b->top->num;
 	b->top->num = b->top->bellow->num;
 	b->top->bellow->num = tmp;
-	ft_putstr_fd("sb\n", 1);
+	if(flag)
+		ft_putstr_fd("sb\n", 1);
 }

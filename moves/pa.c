@@ -1,6 +1,6 @@
 #include "../push_swap.h"
 
-void	pa(t_stack *a, t_stack *b)
+void	pa(t_stack *a, t_stack *b, int flag)
 {
 	t_node	*node;
 
@@ -9,5 +9,6 @@ void	pa(t_stack *a, t_stack *b)
 	node = new_node(b->top->num);
 	push_node_top(a, node);
 	pop_node_top(b);
-	ft_putstr_fd("pa\n", 1);
+	if(flag)
+		ft_putstr_fd("pa\n", 1);
 }

@@ -1,6 +1,6 @@
 #include "../push_swap.h"
 
-void	ra(t_stack *a)
+void	ra(t_stack *a, int flag)
 {
 	t_node	*node;
 
@@ -9,6 +9,7 @@ void	ra(t_stack *a)
 	node = new_node(a->top->num);
 	push_node_bottom(a, node);
 	pop_node_top(a);
-	ft_putstr_fd("ra\n", 1);
+	if(flag)
+		ft_putstr_fd("ra\n", 1);
 
 }
