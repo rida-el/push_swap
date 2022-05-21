@@ -131,7 +131,7 @@ int	get_index_biggest_number(t_stack *stack, int biggest_num)
 	return (-1);
 }
 
-void	return_nodes_to_a(t_stack *a, t_stack *b)
+void	return_nodes_to_a(t_stack *a, t_stack *b, int flag)
 {
 	int	biggest_num;
 	int	ind_biggest_num;
@@ -145,11 +145,11 @@ void	return_nodes_to_a(t_stack *a, t_stack *b)
 		while(b->top->num != get_biggest_number_in_stack(b))
 		{
 			if(ind_biggest_num >= calculate_stack_size(b) / 2)
-				rrb(b, 1);
+				rrb(b, flag);
 			else
-				rb(b, 1);
+				rb(b, flag);
 		}
-		pa(a, b, 1);
+		pa(a, b, flag);
 	}
 }
 
@@ -163,7 +163,7 @@ void	push_swap(t_stack *a, t_stack *b)
 	int pb_count;
 
 	arr = get_sorted_array_from_stack(a);
-	ind_p1 = get_p1_ind(a, get_optimal_divisor(a, b));	
+	ind_p1 = get_p1_ind(a, try_all_divisors(a, b));	
 	ind_p2 = ind_p1 / 2;
 	v_p1 = arr[ind_p1];
 	v_p2 = arr[ind_p2];
@@ -185,7 +185,7 @@ void	push_swap(t_stack *a, t_stack *b)
 				arr = get_sorted_array_from_stack(a);
 				if(!arr)
 					break;
-				ind_p1 = get_p1_ind(a, get_optimal_divisor(a, b));
+				ind_p1 = get_p1_ind(a, try_all_divisors(a, b));
 				ind_p2 = ind_p1 / 2;
 				v_p1 = arr[ind_p1];
 				v_p2 = arr[ind_p2];
@@ -200,6 +200,6 @@ void	push_swap(t_stack *a, t_stack *b)
 		}
 	}
 
-	return_nodes_to_a(a, b);
+	return_nodes_to_a(a, b, 1);
 
 }

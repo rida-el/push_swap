@@ -62,7 +62,8 @@ void print_stack(t_stack *stack);
 int get_p1_ind(t_stack *stack, int divisor);
 int get_biggest_number_in_stack(t_stack *stack);
 int get_index_biggest_number(t_stack *stack, int biggest_num);
-int get_optimal_divisor(t_stack *a, t_stack *b);
+int try_all_divisors(t_stack *a, t_stack *b);
+int	get_optimal_divisor(int *instructions_count);
 
 
 #endif

@@ -18,7 +18,28 @@ t_stack	*copy_stack(t_stack *stack)
 	return (copy);
 }
 
-int get_optimal_divisor(t_stack *aaaa, t_stack *bbbb)
+int	get_optimal_divisor(int *instructions_count)
+{
+	int	i;
+	int	min;
+	int	min_instructions;
+
+	i = 0;
+	min = 0;
+	min_instructions = 2147483647;
+	while (i < 7)
+	{
+		if(instructions_count[i] < min_instructions && instructions_count[i] > 0)
+		{
+			min_instructions = instructions_count[i];
+			min = i + 4;
+		}
+		i++;
+	}
+	return (min);
+}
+
+int try_all_divisors(t_stack *aaaa, t_stack *bbbb)
 {
 	int v_p1;
 	int v_p2;
@@ -34,8 +55,7 @@ int get_optimal_divisor(t_stack *aaaa, t_stack *bbbb)
 	t_stack	*tmp_b;
 	int optimal_divisor;
 	int instructions_count[7];
-	int	i;
-	int	min_instructions;
+
 
 	optimal_divisor = 3;
 	while (++optimal_divisor <= 10)
@@ -54,12 +74,6 @@ int get_optimal_divisor(t_stack *aaaa, t_stack *bbbb)
 		pb_count = 0;
 		while (tmp_a->size > 1)
 		{
-			if (!stack_is_empty(tmp_b) && tmp_a->top->num > v_p1 && tmp_b->top->num <= v_p2 && tmp_b->size >= 2 && tmp_b->top->num >= p_pv2)
-			{
-				rr(tmp_a, tmp_b, 0);
-				(instructions_count[optimal_divisor - 4])++;
-				// continue;
-			}
 			if (tmp_a->top->num <= v_p1)
 			{
 				pb(tmp_a, tmp_b, 0);
@@ -67,7 +81,10 @@ int get_optimal_divisor(t_stack *aaaa, t_stack *bbbb)
 				pb_count++;
 				if (!stack_is_empty(tmp_b) && tmp_b->top->num <= v_p2)
 				{
-					rb(tmp_b, 0);
+					if(tmp_a->top->num > v_p1)
+						rr(tmp_a, tmp_b, 0);
+					else
+						rb(tmp_b, 0);
 					(instructions_count[optimal_divisor - 4])++;
 				}
 
@@ -96,28 +113,19 @@ int get_optimal_divisor(t_stack *aaaa, t_stack *bbbb)
 		while (!stack_is_empty(tmp_b))
 		{
 			biggest_num = get_biggest_number_in_stack(tmp_b);
-			// printf("%d\n", biggest_num);
-
 			ind_biggest_num = get_index_biggest_number(tmp_b, biggest_num);
-
 			if (ind_biggest_num == -1)
 			{
 				ft_putstr_fd("Biggest not found in stack !\n", 1);
 				break ;
 			}
-			// scanf("%d", &p);
 			while (tmp_b->top->num != get_biggest_number_in_stack(tmp_b))
 			{
 				if (ind_biggest_num >= calculate_stack_size(tmp_b) / 2)
-				{
 					rrb(tmp_b, 0);
-					(instructions_count[optimal_divisor - 4])++;
-				}
 				else
-				{
 					rb(tmp_b, 0);
-					(instructions_count[optimal_divisor - 4])++;
-				}
+				(instructions_count[optimal_divisor - 4])++;
 			}
 			pa(tmp_a, tmp_b, 0);
 			(instructions_count[optimal_divisor - 4])++;
@@ -126,20 +134,6 @@ int get_optimal_divisor(t_stack *aaaa, t_stack *bbbb)
 		free(tmp_b);
 	}
 
-	i = 0;
-	int min = 0;
-	min_instructions = 2147483647;
-	while (i < 7)
-	{
-		if(instructions_count[i] < min_instructions && instructions_count[i] > 0)
-		{
-			min_instructions = instructions_count[i];
-			min = i + 4;
-		}
-		// printf("%d\n", instructions_count[i]);
-		i++;
-	}
-	
-	// printf("MINIMAL ==>%d\n", min_instructions);
-	return (min);
+
+	return (get_optimal_divisor(instructions_count));
 }
