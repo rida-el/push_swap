@@ -34,6 +34,6 @@ Extra chekcs:
 - [] Check if stack is alreay sorted
 - [] handle stack size <= 3
 - [] handle stack size <= 5
-- [] handle stack size >= 100
-- [] handle stack size >= 500
+- [X] handle stack size >= 100
+- [X] handle stack size >= 500
 
