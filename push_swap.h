@@ -20,8 +20,8 @@ typedef struct s_stack
 } t_stack;
 
 /* --- INPUT functions --- */
-int check_individual_input(char *input);
-int check_invalid_input(char **split);
+int is_valid_individual_input(char *input);
+int is_invalid_input(char **split);
 char **parse_input(char **argv);
 
 /* --- CHECK functions ---*/
