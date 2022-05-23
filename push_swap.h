@@ -70,6 +70,14 @@ void push_node_top(t_stack *stack, t_node *node);
 void pop_node_bottom(t_stack *stack);
 void pop_node_top(t_stack *stack);
 
+
+/* --- Free functions --- */
+void	free_stack(t_stack *stack);
+void	free_split(char **split);
+void	free_utils(t_utils *utils);
+
+
+
 /* --- Algo functions --- */
 void push_swap(t_stack *a, t_stack *b);
 int *bubble_sort_array(int *arr, int size);
@@ -80,7 +88,7 @@ int get_p1_ind(t_stack *stack, int divisor);
 int get_biggest_number_in_stack(t_stack *stack);
 int get_index_biggest_number(t_stack *stack, int biggest_num);
 int try_all_divisors(t_stack *a, t_stack *b);
-int	get_optimal_divisor(int *instructions_count);
+int	get_optimal_divisor(t_divisor *div);
 
 void	send_nodes_to_b(t_stack *a, t_stack *b, t_utils *utils);
 

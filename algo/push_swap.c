@@ -167,6 +167,8 @@ int	handle_num_less_than_vp1(t_stack *a, t_stack *b, t_utils *utils, int *pb_cou
 	}
 	if(*pb_count == utils->ind_p1 + 1)
 	{
+		// FREEING
+		// FREE the previous pointer utils->arr was on !
 		utils->arr = get_sorted_array_from_stack(a);
 		if(!utils->arr)
 			return (-1);
@@ -216,4 +218,7 @@ void	push_swap(t_stack *a, t_stack *b)
 	utils->v_p2 = utils->arr[utils->ind_p2];
 	send_nodes_to_b(a, b, utils);
 	return_nodes_to_a(a, b, 1);
+	// FREEING
+	// free(utils);// free utils->arr
+	free_utils(utils);
 }

@@ -11,7 +11,9 @@ STACK		= $(addprefix stack/, new_node pop_node_top pop_node_bottom push_node_top
 MOVES		= $(addprefix moves/, pa pb ra rb rr rra rrb rrr sa sb ss)
 ALGO		= $(addprefix algo/, push_swap get_optimal_divisor)
 CHECKS		= $(addprefix checks/, stack_is_empty)
-SRCS		= $(STACK) $(MOVES) $(CHECKS) $(ALGO) main
+FREE		= $(addprefix free/, free_stack free_split free_utils)
+
+SRCS		= $(STACK) $(MOVES) $(CHECKS) $(ALGO) $(FREE) main
 
 LIBDIR := libft
 LIB := libft.a

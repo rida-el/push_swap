@@ -18,7 +18,7 @@ t_stack *copy_stack(t_stack *stack)
 	return (copy);
 }
 
-int get_optimal_divisor(int *instructions_count)
+int get_optimal_divisor(t_divisor *div)
 {
 	int i;
 	int min;
@@ -29,22 +29,22 @@ int get_optimal_divisor(int *instructions_count)
 	min_instructions = 2147483647;
 	while (i < 7)
 	{
-		if (instructions_count[i] < min_instructions && instructions_count[i] > 0)
+		if (div->instructions_count[i] < min_instructions && div->instructions_count[i] > 0)
 		{
-			min_instructions = instructions_count[i];
+			min_instructions = div->instructions_count[i];
 			min = i + 4;
 		}
 		i++;
 	}
+	free(div);
 	return (min);
 }
 
 void reset_utils(t_utils *utils, t_stack *tmp_a, int optimal_divisor)
 {
-	if (!utils)
-
-		if (!utils)
-			return;
+	if(!utils)
+	utils = malloc(sizeof(t_utils));
+	
 	utils->arr = get_sorted_array_from_stack(tmp_a);
 	if (!utils->arr)
 		return;
@@ -143,8 +143,9 @@ int try_all_divisors(t_stack *aaaa, t_stack *bbbb)
 		reset_utils(utils, tmp_a, div->optimal_divisor);
 		some_func(tmp_a, tmp_b, div, utils);
 		push_back_to_tmp_a(tmp_a, tmp_b, div->instructions_count, div->optimal_divisor);
-		free(tmp_a);
-		free(tmp_b);
+		free_stack(tmp_a);
+		free_stack(tmp_b);
 	}
-	return (get_optimal_divisor(div->instructions_count));
+	free_utils(utils);
+	return (get_optimal_divisor(div));// This also fress div
 }

@@ -76,12 +76,11 @@ int main(int argc, char **argv)
 {
 	(void)argc;
 	int 	i;
-	t_node	*elm;
 	char	**split;
+	t_node	*elm;
 	t_stack	*a;
 	t_stack	*b;
 
-	// parse input
 	split = parse_input(argv);
 	a = stack_init();
 	b = stack_init();
@@ -90,7 +89,12 @@ int main(int argc, char **argv)
 	{
 		elm = new_node(ft_atoi(split[i]));
 		push_node_bottom(a, elm);
+		free(split[i]);
 		i++;
 	}
 	push_swap(a, b);
+	// FREEING
+	free_stack(a);// free each node, node by node, then the full stack
+	free_stack(b);
+	while(1);
 }
