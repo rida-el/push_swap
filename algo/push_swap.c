@@ -153,44 +153,42 @@ void	return_nodes_to_a(t_stack *a, t_stack *b, int flag)
 	}
 }
 
-void	push_swap(t_stack *a, t_stack *b)
-{
-	int	v_p1;
-	int	v_p2;
-	int	ind_p1;
-	int	ind_p2;
-	int	*arr;
-	int pb_count;
 
-	arr = get_sorted_array_from_stack(a);
-	ind_p1 = get_p1_ind(a, try_all_divisors(a, b));	
-	ind_p2 = ind_p1 / 2;
-	v_p1 = arr[ind_p1];
-	v_p2 = arr[ind_p2];
+int	handle_num_less_than_vp1(t_stack *a, t_stack *b, t_utils *utils, int *pb_count)
+{
+	pb(a, b, 1);
+	(*pb_count)++;
+	if( !stack_is_empty(b) && b->top->num <= utils->v_p2)
+	{
+		if(a->top->num > utils->v_p1)
+			rr(a, b, 1);
+		else
+			rb(b, 1);
+	}
+	if(*pb_count == utils->ind_p1 + 1)
+	{
+		utils->arr = get_sorted_array_from_stack(a);
+		if(!utils->arr)
+			return (-1);
+		utils->ind_p1 = get_p1_ind(a, try_all_divisors(a, b));
+		utils->ind_p2 = utils->ind_p1 / 2;
+		utils->v_p1 = utils->arr[utils->ind_p1];
+		utils->v_p2 = utils->arr[utils->ind_p2];
+		*pb_count = 0;
+	}
+	return (0);
+}
+
+void	send_nodes_to_b(t_stack *a, t_stack *b, t_utils *utils)
+{
+	int	pb_count;
+
 	pb_count = 0;
 	while(a->size > 1)
 	{
-		if(a->top->num <= v_p1){
-			pb(a, b, 1);
-			pb_count++;
-			if( !stack_is_empty(b) && b->top->num <= v_p2)
-			{
-				if(a->top->num > v_p1)
-					rr(a, b, 1);
-				else
-					rb(b, 1);
-			}
-			if(pb_count == ind_p1 + 1)
-			{
-				arr = get_sorted_array_from_stack(a);
-				if(!arr)
-					break;
-				ind_p1 = get_p1_ind(a, try_all_divisors(a, b));
-				ind_p2 = ind_p1 / 2;
-				v_p1 = arr[ind_p1];
-				v_p2 = arr[ind_p2];
-				pb_count = 0;
-			}
+		if(a->top->num <= utils->v_p1){
+			if(handle_num_less_than_vp1(a, b, utils, &pb_count) == -1)
+				break ;
 		}
 		else
 		{
@@ -199,7 +197,23 @@ void	push_swap(t_stack *a, t_stack *b)
 			ra(a, 1);
 		}
 	}
+}
 
+
+void	push_swap(t_stack *a, t_stack *b)
+{
+	t_utils *utils;
+
+	utils = malloc(sizeof(t_utils));
+	if (!utils)
+		return ;
+	utils->arr = get_sorted_array_from_stack(a);
+	if(!utils->arr)
+		return ;
+	utils->ind_p1 = get_p1_ind(a, try_all_divisors(a, b));	
+	utils->ind_p2 = utils->ind_p1 / 2;
+	utils->v_p1 = utils->arr[utils->ind_p1];
+	utils->v_p2 = utils->arr[utils->ind_p2];
+	send_nodes_to_b(a, b, utils);
 	return_nodes_to_a(a, b, 1);
-
 }
