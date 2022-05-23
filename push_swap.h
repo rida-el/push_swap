@@ -5,6 +5,8 @@
 #include <stdlib.h>
 #include "./libft/libft.h"
 
+
+
 typedef struct s_node
 {
 	int num;
@@ -19,6 +21,21 @@ typedef struct s_stack
 	int size;
 } t_stack;
 
+typedef struct s_utils
+{
+	int	v_p1;
+	int	v_p2;
+	int	ind_p1;
+	int	ind_p2;
+	int	*arr;
+	int	pb_count;
+} t_utils;
+
+typedef struct s_divisor
+{
+	int instructions_count[7];
+	int optimal_divisor;
+} t_divisor;
 /* --- INPUT functions --- */
 int is_valid_individual_input(char *input);
 int is_invalid_input(char **split);
@@ -65,5 +82,6 @@ int get_index_biggest_number(t_stack *stack, int biggest_num);
 int try_all_divisors(t_stack *a, t_stack *b);
 int	get_optimal_divisor(int *instructions_count);
 
+void	send_nodes_to_b(t_stack *a, t_stack *b, t_utils *utils);
 
 #endif
