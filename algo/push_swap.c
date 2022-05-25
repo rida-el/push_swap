@@ -173,8 +173,7 @@ int	handle_num_less_than_vp1(t_stack *a, t_stack *b, t_utils *utils, int *pb_cou
 		utils->arr = get_sorted_array_from_stack(a, utils->arr);
 		if(!utils->arr)
 			return (-1);
-		// utils->ind_p1 = get_p1_ind(a, try_all_divisors(a, b));
-		utils->ind_p1 = get_p1_ind(a, 5);
+		utils->ind_p1 = get_p1_ind(a, try_all_divisors(a, b));
 
 		utils->ind_p2 = utils->ind_p1 / 2;
 		utils->v_p1 = utils->arr[utils->ind_p1];
