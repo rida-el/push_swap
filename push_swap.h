@@ -81,7 +81,7 @@ void	free_utils(t_utils *utils);
 /* --- Algo functions --- */
 void push_swap(t_stack *a, t_stack *b);
 int *bubble_sort_array(int *arr, int size);
-int *get_sorted_array_from_stack(t_stack *a);
+int *get_sorted_array_from_stack(t_stack *a, int *prev_arr);
 int calculate_stack_size(t_stack *stack);
 void print_stack(t_stack *stack);
 int get_p1_ind(t_stack *stack, int divisor);

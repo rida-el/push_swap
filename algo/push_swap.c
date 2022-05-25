@@ -25,25 +25,26 @@ int *bubble_sort_array(int *arr, int size)
 	return arr;
 }
 
-int	*get_sorted_array_from_stack(t_stack *a)
+int	*get_sorted_array_from_stack(t_stack *a, int *prev_arr)
 {
 	int		i;
-	int		*arr;
+	int		*tmp;
 	t_node	*head;
 
+	tmp = prev_arr;
 	if(a->size == 0)
 		return (0);
-	arr = ft_calloc(sizeof(int), a->size);
+	prev_arr = ft_calloc(sizeof(int), a->size);
 	i = 0;
 	head = a->top;
 	while(head){
-		arr[i] = head->num;
+		prev_arr[i] = head->num;
 		head = head->bellow;
 		i++;
 	}
-	arr = bubble_sort_array(arr, a->size);
-
-	return (arr);
+	prev_arr = bubble_sort_array(prev_arr, a->size);
+	free(tmp);
+	return (prev_arr);
 }
 
 int	calculate_stack_size(t_stack *stack)
@@ -169,10 +170,12 @@ int	handle_num_less_than_vp1(t_stack *a, t_stack *b, t_utils *utils, int *pb_cou
 	{
 		// FREEING
 		// FREE the previous pointer utils->arr was on !
-		utils->arr = get_sorted_array_from_stack(a);
+		utils->arr = get_sorted_array_from_stack(a, utils->arr);
 		if(!utils->arr)
 			return (-1);
-		utils->ind_p1 = get_p1_ind(a, try_all_divisors(a, b));
+		// utils->ind_p1 = get_p1_ind(a, try_all_divisors(a, b));
+		utils->ind_p1 = get_p1_ind(a, 5);
+
 		utils->ind_p2 = utils->ind_p1 / 2;
 		utils->v_p1 = utils->arr[utils->ind_p1];
 		utils->v_p2 = utils->arr[utils->ind_p2];
@@ -209,10 +212,12 @@ void	push_swap(t_stack *a, t_stack *b)
 	utils = malloc(sizeof(t_utils));
 	if (!utils)
 		return ;
-	utils->arr = get_sorted_array_from_stack(a);
+	utils->arr = malloc(sizeof(int) * 1);
+	utils->arr = get_sorted_array_from_stack(a, utils->arr);
 	if(!utils->arr)
 		return ;
-	utils->ind_p1 = get_p1_ind(a, try_all_divisors(a, b));	
+	utils->ind_p1 = get_p1_ind(a, try_all_divisors(a, b));
+	// utils->ind_p1 = get_p1_ind(a, 5);
 	utils->ind_p2 = utils->ind_p1 / 2;
 	utils->v_p1 = utils->arr[utils->ind_p1];
 	utils->v_p2 = utils->arr[utils->ind_p2];
