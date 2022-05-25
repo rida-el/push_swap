@@ -9,7 +9,7 @@ FILES		=	checks/stack_is_empty.c \
 
 STACK		= $(addprefix stack/, new_node pop_node_top pop_node_bottom push_node_top push_node_bottom stack_init)
 MOVES		= $(addprefix moves/, pa pb ra rb rr rra rrb rrr sa sb ss)
-ALGO		= $(addprefix algo/, push_swap get_optimal_divisor)
+ALGO		= $(addprefix algo/, push_swap get_optimal_divisor algo_utils divisor)
 CHECKS		= $(addprefix checks/, stack_is_empty)
 FREE		= $(addprefix free/, free_stack free_split free_utils)
 
@@ -17,9 +17,7 @@ SRCS		= $(STACK) $(MOVES) $(CHECKS) $(ALGO) $(FREE) main
 
 LIBDIR := libft
 LIB := libft.a
-# TH := -lpthread
 
-# SRC			= $(SRCS:=.c)
 OBJ			= $(SRCS:=.o)
 HEADER		= ./push_swap.h
 
