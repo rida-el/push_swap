@@ -96,5 +96,5 @@ int main(int argc, char **argv)
 	// FREEING
 	free_stack(a);// free each node, node by node, then the full stack
 	free_stack(b);
-	while(1);
+	// while(1);
 }
