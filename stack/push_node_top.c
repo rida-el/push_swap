@@ -2,7 +2,7 @@
 
 void	push_node_top(t_stack *stack, t_node *node)
 {
-	if(!stack_is_empty(stack))
+	if (!stack_is_empty(stack))
 	{
 		node->bellow = stack->top;
 		stack->top->above = node;

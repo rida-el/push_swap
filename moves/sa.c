@@ -1,7 +1,5 @@
 #include "../push_swap.h"
 
-/* sa: swap a - swap the first 2 elements at the top of stack a. 
- * (do nothing if there is only one or no elements). */
 void	sa(t_stack *a, int flag)
 {
 	int	tmp;
@@ -11,6 +9,6 @@ void	sa(t_stack *a, int flag)
 	tmp = a->top->num;
 	a->top->num = a->top->bellow->num;
 	a->top->bellow->num = tmp;
-	if(flag)
+	if (flag)
 		ft_putstr_fd("sa\n", 1);
 }
