@@ -41,11 +41,8 @@ int get_optimal_divisor(t_divisor *div)
 }
 
 void reset_utils(t_utils *utils, t_stack *tmp_a, int optimal_divisor)
-{
-	if(!utils)
-	utils = malloc(sizeof(t_utils));
-	
-	utils->arr = get_sorted_array_from_stack(tmp_a);
+{	
+	utils->arr = get_sorted_array_from_stack(tmp_a, utils->arr);
 	if (!utils->arr)
 		return;
 	utils->ind_p1 = get_p1_ind(tmp_a, optimal_divisor);
@@ -132,6 +129,7 @@ int try_all_divisors(t_stack *aaaa, t_stack *bbbb)
 
 	div = malloc(sizeof(t_divisor));
 	utils = malloc(sizeof(t_utils));
+	utils->arr = malloc(sizeof(int));
 	if (!utils || !div)
 		return (0);
 	div->optimal_divisor = 3;
@@ -147,5 +145,6 @@ int try_all_divisors(t_stack *aaaa, t_stack *bbbb)
 		free_stack(tmp_b);
 	}
 	free_utils(utils);
-	return (get_optimal_divisor(div));// This also fress div
+
+	return (get_optimal_divisor(div));// This also frees div
 }
