@@ -10,4 +10,5 @@ void	free_stack(t_stack *stack)
 		stack->top = stack->top->bellow;
 		free(tmp);
 	}
+	free(stack);
 }
