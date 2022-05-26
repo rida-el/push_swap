@@ -33,7 +33,7 @@ Algo:
 Extra chekcs:
 - [] Check if stack is alreay sorted
 - [] handle stack size <= 3
-- [] handle stack size <= 5
+- [X] handle stack size <= 5
 - [X] handle stack size >= 100
 - [X] handle stack size >= 500
 
