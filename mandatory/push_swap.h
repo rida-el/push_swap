@@ -96,4 +96,8 @@ void	do_moves_sort_5(t_stack *a, t_stack *b, int stack_max, int stack_min);
 void	sort_3(t_stack *a);
 void	sort_2(t_stack *a);
 
+char	*get_next_line(int fd);
+char	*get_line(int fd);
+char	*ft_line_join(char *s1, char *s2);
+
 #endif

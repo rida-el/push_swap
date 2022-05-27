@@ -1,5 +1,5 @@
 NAME		= push_swap
-	
+
 CC			= cc
 # FLAGS		= -Wall -Wextra -Werror -I$(LIBDIR) $(TH)
 FLAGS		= -Wall -Wextra -Werror -I$(LIBDIR)
@@ -13,30 +13,35 @@ ALGO		= $(addprefix algo/, push_swap get_optimal_divisor algo_utils divisor sort
 CHECKS		= $(addprefix checks/, stack_is_empty)
 FREE		= $(addprefix free/, free_stack free_split free_utils)
 
+
 SRCS		= $(STACK) $(MOVES) $(CHECKS) $(ALGO) $(FREE) main
+SRCS_BONUS	= $(CHECKER)
 
 LIBDIR := libft
 LIB := libft.a
 
 OBJ			= $(SRCS:=.o)
+OBJ_BONUS	= $(SRCS_BONUS:=.o)
 HEADER		= ./push_swap.h
 
 %.o : %.c push_swap.h
 	$(CC) $(FLAGS) -c $< -o $@
 
-
 $(NAME):  $(LIB) $(OBJ) $(HEADER)
 	$(CC) $(FLAGS) $(OBJ) $(LIB) -o $(NAME) 
 
-
+$(BONUS):  $(LIB) $(OBJ) $(OBJ_BONUS) $(HEADER)
+	$(CC) $(FLAGS) $(OBJ) $(OBJ_BONUS) $(LIB) -o $(BONUS) 
 
 all: $(NAME)
 
 clean :
-	rm -rf $(OBJ) main.o
+	rm -rf $(OBJ) $(OBJ_BONUS) main.o
+
 fclean : clean
-	rm -rf $(NAME) $(LIB)
-re : fclean all
+	rm -rf $(NAME) $(BONUS) $(LIB)
+
+re : fclean all $(BONUS)
 
 $(LIB):
 	$(MAKE) -C $(LIBDIR)
