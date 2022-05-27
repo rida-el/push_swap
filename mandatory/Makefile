@@ -7,14 +7,16 @@ FLAGS		= -Wall -Wextra -Werror -I$(LIBDIR)
 FILES		=	checks/stack_is_empty.c \
 				stack/new_node.c 
 
-STACK		= $(addprefix stack/, new_node pop_node_top pop_node_bottom push_node_top push_node_bottom stack_init)
+STACK		= $(addprefix stack/, new_node pop_node_top pop_node_bottom push_node_top push_node_bottom stack_init stack_is_sorted)
 MOVES		= $(addprefix moves/, pa pb ra rb rr rra rrb rrr sa sb ss)
 ALGO		= $(addprefix algo/, push_swap get_optimal_divisor algo_utils divisor sort_2 sort_5 sort_3)
 CHECKS		= $(addprefix checks/, stack_is_empty)
 FREE		= $(addprefix free/, free_stack free_split free_utils)
+INPUT		= $(addprefix input/, is_valid_input is_valid_individual_input parse_input)
 
 
-SRCS		= $(STACK) $(MOVES) $(CHECKS) $(ALGO) $(FREE) main
+
+SRCS		= $(STACK) $(MOVES) $(CHECKS) $(ALGO) $(FREE) $(INPUT) main
 SRCS_BONUS	= $(CHECKER)
 
 LIBDIR := libft
