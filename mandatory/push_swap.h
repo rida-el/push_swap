@@ -40,6 +40,7 @@ int		is_invalid_input(char **split);
 char	**parse_input(char **argv);
 
 int		stack_is_empty(t_stack *stack);
+int		stack_is_sorted(t_stack *stack);
 
 void	sa(t_stack *b, int flag);
 void	sb(t_stack *b, int flag);
