@@ -66,6 +66,10 @@ void	pop_node_bottom(t_stack *stack);
 void	pop_node_top(t_stack *stack);
 
 void	free_stack(t_stack *stack);
+int	stack_is_sorted(t_stack *stack);
+
+
+
 void	free_split(char **split);
 void	free_utils(t_utils *utils);
 
@@ -101,4 +105,7 @@ char	*get_next_line(int fd);
 char	*get_line(int fd);
 char	*ft_line_join(char *s1, char *s2);
 
+
+void	execute_instructions(t_stack *a, t_stack *b);
+void	exec_one_instruction(t_stack *a, t_stack *b, char *instruction);
 #endif
