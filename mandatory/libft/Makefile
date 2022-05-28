@@ -57,11 +57,11 @@ OBJS_BNS = $(SRCS_BNS:.c=.o)
 
 INC = libft.h
 
-$(NAME): $(OBJS) bonus
+$(NAME): $(OBJS)
 	$(AR) $(ARFLAGS) $(NAME) $(OBJS)
 
 %.o: %.c $(INC)
-	$(CC) $(CFLAGS) -c $< -o $@ 
+	$(CC) $(CFLAGS) -c $< -o $@ -I $(INC)
 
 all: $(NAME)
 
