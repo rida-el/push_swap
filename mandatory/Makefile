@@ -7,7 +7,7 @@ FLAGS		= -Wall -Wextra -Werror -I$(LIBDIR)
 FILES		=	checks/stack_is_empty.c \
 				stack/new_node.c 
 
-STACK		= $(addprefix stack/, new_node pop_node_top pop_node_bottom push_node_top push_node_bottom stack_init stack_is_sorted)
+STACK		= $(addprefix stack/, new_node pop_node_top pop_node_bottom push_node_top push_node_bottom stack_init stack_is_sorted print_stack)
 MOVES		= $(addprefix moves/, pa pb ra rb rr rra rrb rrr sa sb ss)
 ALGO		= $(addprefix algo/, push_swap get_optimal_divisor algo_utils divisor sort_2 sort_5 sort_3)
 CHECKS		= $(addprefix checks/, stack_is_empty)
