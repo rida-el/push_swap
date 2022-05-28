@@ -102,4 +102,8 @@ char	*get_next_line(int fd);
 char	*get_line(int fd);
 char	*ft_line_join(char *s1, char *s2);
 
+
+int		ft_strcmp(const char *s1, const char *s2);
+void	exit_error(int status);
+
 #endif

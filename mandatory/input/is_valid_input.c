@@ -1,9 +1,9 @@
 #include "../push_swap.h"
 
-int	is_invalid_input(char **split)
+int is_invalid_input(char **split)
 {
-	int	i;
-	int	j;
+	int i;
+	int j;
 
 	i = 0;
 	while (split[i])

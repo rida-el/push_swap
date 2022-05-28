@@ -31,10 +31,11 @@ Algo:
 - [X] S5 - Repeat S4 until STACK_B is empty.
 
 Extra chekcs:
-- [] Check if stack is alreay sorted
-- [] handle stack size <= 3
+- [X] Check if stack is alreay sorted
+- [X] handle stack size <= 3
 - [X] handle stack size <= 5
 - [X] handle stack size >= 100
 - [X] handle stack size >= 500
-- [ ] handle case like "./push_swap 1 - 6 3" or "./push_swap 1 "-" 6 97 2"
-- [ ] handle case like "./push_swap 1 "" 87 656556"
+- [X] handle case like "./push_swap 1 - 6 3" or "./push_swap 1 "-" 6 97 2"
+- [X] handle case like "./push_swap 1 "" 87 656556"
+- [ ] fix libft makefile relink
