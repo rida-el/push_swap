@@ -9,8 +9,9 @@ int	main(int argc, char **argv)
 	t_stack	*a;
 	t_stack	*b;
 
+	if(argc == 1)
+		exit(0);
 	i = 0;
-	(void)argc;
 	split = parse_input(argv);
 	a = stack_init();
 	b = stack_init();
@@ -23,6 +24,7 @@ int	main(int argc, char **argv)
 	}
 	if(stack_is_sorted(a))
 		exit(0);
+	print_stack(a);
 	push_swap(a, b);
 	free_stack(a);
 	free_stack(b);
