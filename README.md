@@ -36,4 +36,5 @@ Extra chekcs:
 - [X] handle stack size <= 5
 - [X] handle stack size >= 100
 - [X] handle stack size >= 500
-
+- [ ] handle case like "./push_swap 1 - 6 3" or "./push_swap 1 "-" 6 97 2"
+- [ ] handle case like "./push_swap 1 "" 87 656556"
