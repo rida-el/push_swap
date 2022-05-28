@@ -16,10 +16,7 @@ char	**parse_input(char **argv)
 	}
 	split = ft_split(str, ' ');
 	if (!is_invalid_input(split))
-	{
-		write(2, "ERROR\n", 6);
-		exit(1);
-	}
+		exit_error(1);
 	free(str);
 	return (split);
 }
