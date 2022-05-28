@@ -17,7 +17,7 @@ INPUT		= $(addprefix input/, is_valid_input is_valid_individual_input parse_inpu
 # BONUS
 CHECKER		= get_next_line
 
-SRCS		= $(STACK) $(MOVES) $(CHECKS) $(FREE) $(CHECKER) $(INPUT) main
+SRCS		= $(STACK) $(MOVES) $(CHECKS) $(FREE) $(CHECKER) $(INPUT) main ft_strcmp exit_error
 
 LIBDIR := libft
 LIB := libft.a

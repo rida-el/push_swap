@@ -66,7 +66,8 @@ void	pop_node_bottom(t_stack *stack);
 void	pop_node_top(t_stack *stack);
 
 void	free_stack(t_stack *stack);
-int	stack_is_sorted(t_stack *stack);
+int		stack_is_sorted(t_stack *stack);
+void	print_stack(t_stack *stack);
 
 
 
@@ -108,4 +109,8 @@ char	*ft_line_join(char *s1, char *s2);
 
 void	execute_instructions(t_stack *a, t_stack *b);
 void	exec_one_instruction(t_stack *a, t_stack *b, char *instruction);
+
+
+int		ft_strcmp(const char *s1, const char *s2);
+void	exit_error(int status);
 #endif
