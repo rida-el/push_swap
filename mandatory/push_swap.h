@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rel-maza <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/05/29 15:48:16 by rel-maza          #+#    #+#             */
+/*   Updated: 2022/05/29 15:48:48 by rel-maza         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
@@ -101,7 +113,6 @@ void	sort_2(t_stack *a);
 char	*get_next_line(int fd);
 char	*get_line(int fd);
 char	*ft_line_join(char *s1, char *s2);
-
 
 int		ft_strcmp(const char *s1, const char *s2);
 void	exit_error(int status);

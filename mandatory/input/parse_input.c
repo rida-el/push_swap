@@ -1,13 +1,25 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   parse_input.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rel-maza <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/05/29 15:40:37 by rel-maza          #+#    #+#             */
+/*   Updated: 2022/05/29 15:47:37 by rel-maza         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../push_swap.h"
 
-int is_space(char c)
+int	is_space(char c)
 {
-	return (c >= 9 && c <= 13) || c == 32;
+	return ((c >= 9 && c <= 13) || c == 32);
 }
 
-int is_all_spaces(char *str)
+int	is_all_spaces(char *str)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	while (str[i])
@@ -24,26 +36,27 @@ int	is_one_sign(char *str)
 	int	i;
 
 	i = 0;
-	while(str[i])
+	while (str[i])
 	{
-		if((str[i] == '-' || str[i] == '+') && !ft_isdigit(str[i+1]))
-			return(1);
+		if ((str[i] == '-' || str[i] == '+') && (!ft_isdigit (str[i + 1])))
+			return (1);
 		i++;
 	}
 	return (0);
 }
 
-char **parse_input(char **argv)
+char	**parse_input(char **argv)
 {
-	int i;
-	char *str;
-	char **split;
+	int		i;
+	char	*str;
+	char	**split;
 
 	str = ft_strdup("");
 	i = 1;
 	while (argv[i])
 	{
-		if (argv[i][0] == '\0' || is_all_spaces(argv[i]) || is_one_sign(argv[i]))
+		if (argv[i][0] == '\0' || is_all_spaces(argv[i])
+				|| is_one_sign(argv[i]))
 			exit_error(1);
 		str = ft_strjoin(str, argv[i]);
 		str = ft_strjoin(str, " ");
