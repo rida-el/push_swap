@@ -1,27 +1,41 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rel-maza <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/06/04 16:32:46 by rel-maza          #+#    #+#             */
+/*   Updated: 2022/06/04 16:33:17 by rel-maza         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../push_swap.h"
 
-int ft_strlent(char *s)
+int	ft_strlent(char *s)
 {
+	int	i;
+
 	if (!s)
 		return (0);
-	int i;
 	i = 0;
 	while (s[i])
 		i++;
 	return (i);
 }
 
-char *ft_line_join(char *s1, char *s2)
+char	*ft_line_join(char *s1, char *s2)
 {
-	int i = 0;
-	int j = 0;
-	char *result = NULL;
-	int l = 0;
+	int		i;
+	int		j;
+	int		l;
+	char	*result;
+
+	i = 0;
+	j = 0;
+	result = NULL;
 	if (!s1)
-	{
-		s1 = (char *)malloc(sizeof(char));
-		s1[0] = 0;
-	}
+		s1 = (char *)ft_calloc(1, sizeof(char));
 	l = ft_strlent(s1) + ft_strlent(s2);
 	result = (char *)malloc(sizeof(char) * (l + 1));
 	while (s1[i])
@@ -36,11 +50,13 @@ char *ft_line_join(char *s1, char *s2)
 	return (result);
 }
 
-char *get_line(int fd)
+char	*get_line(int fd)
 {
-	char *line = NULL;
-	char buffer[2];
-	int a;
+	int		a;
+	char	*line;
+	char	buffer[2];
+
+	line = 0;
 	buffer[1] = 0;
 	while (1)
 	{
@@ -61,26 +77,13 @@ char *get_line(int fd)
 	return (line);
 }
 
-char *get_next_line(int fd)
+char	*get_next_line(int fd)
 {
+	char	*result;
 
-	char *result = NULL;
-
+	result = 0;
 	if (fd < 0)
 		return (NULL);
-
 	result = get_line(fd);
 	return (result);
 }
-
-// int main()
-// {
-// 	char *res;
-// 	res = get_next_line(0);
-// 	while (res)
-// 	{
-// 		printf("Line : %s",res);
-// 		res = get_next_line(0);
-// 	}
-// 	return(0);
-// }

@@ -1,32 +1,43 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rel-maza <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/06/04 15:47:19 by rel-maza          #+#    #+#             */
+/*   Updated: 2022/06/04 15:58:15 by rel-maza         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../push_swap.h"
 
 void	exec_one_instruction(t_stack *a, t_stack *b, char *instruction)
 {
-	// printf("%s", instruction);
-		if (ft_strcmp(instruction, "pa\n") == 0)
-			pa(a, b, 0);
-		else if (ft_strcmp(instruction, "pb\n") == 0)
-			pb(a, b, 0);
-		else if (ft_strcmp(instruction, "ra\n") == 0)
-			ra(a, 0);
-		else if (ft_strcmp(instruction, "rb\n") == 0)
-			rb(b, 0);
-		else if (ft_strcmp(instruction, "rr\n") == 0)
-			rr(a, b, 0);
-		else if (ft_strcmp(instruction, "rra\n") == 0)
-			rra(a, 0);
-		else if (ft_strcmp(instruction, "rrb\n") == 0)
-			rrb(b, 0);
-		else if (ft_strcmp(instruction, "rrr\n") == 0)
-			rrr(a, b, 0);
-		else if (ft_strcmp(instruction, "sa\n") == 0)
-			sa(a, 0);
-		else if (ft_strcmp(instruction, "sb\n") == 0)
-			sb(b, 0);
-		else if (ft_strcmp(instruction, "ss\n") == 0)
-			ss(a, b, 0);
-		else
-			exit_error(1);
+	if (ft_strcmp(instruction, "pa\n") == 0)
+		pa(a, b, 0);
+	else if (ft_strcmp(instruction, "pb\n") == 0)
+		pb(a, b, 0);
+	else if (ft_strcmp(instruction, "ra\n") == 0)
+		ra(a, 0);
+	else if (ft_strcmp(instruction, "rb\n") == 0)
+		rb(b, 0);
+	else if (ft_strcmp(instruction, "rr\n") == 0)
+		rr(a, b, 0);
+	else if (ft_strcmp(instruction, "rra\n") == 0)
+		rra(a, 0);
+	else if (ft_strcmp(instruction, "rrb\n") == 0)
+		rrb(b, 0);
+	else if (ft_strcmp(instruction, "rrr\n") == 0)
+		rrr(a, b, 0);
+	else if (ft_strcmp(instruction, "sa\n") == 0)
+		sa(a, 0);
+	else if (ft_strcmp(instruction, "sb\n") == 0)
+		sb(b, 0);
+	else if (ft_strcmp(instruction, "ss\n") == 0)
+		ss(a, b, 0);
+	else
+		exit_error(1);
 }
 
 void	execute_instructions(t_stack *a, t_stack *b)
@@ -40,7 +51,6 @@ void	execute_instructions(t_stack *a, t_stack *b)
 		instruction = get_next_line(0);
 	}
 }
-
 
 int	main(int argc, char **argv)
 {
@@ -62,15 +72,11 @@ int	main(int argc, char **argv)
 		free(split[i]);
 		i++;
 	}
-	print_stack(a);
 	execute_instructions(a, b);
 	if (stack_is_sorted(a) && stack_is_empty(b))
 		write(1, "OK\n", 3);
 	else
 		write(1, "KO\n", 3);
-	
-	print_stack(a);
-
 	free_stack(a);
 	free_stack(b);
 }

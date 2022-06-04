@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rel-maza <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/06/04 15:58:45 by rel-maza          #+#    #+#             */
+/*   Updated: 2022/06/04 15:59:51 by rel-maza         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
@@ -69,8 +81,6 @@ void	free_stack(t_stack *stack);
 int		stack_is_sorted(t_stack *stack);
 void	print_stack(t_stack *stack);
 
-
-
 void	free_split(char **split);
 void	free_utils(t_utils *utils);
 
@@ -101,16 +111,14 @@ void	do_moves_sort_5(t_stack *a, t_stack *b, int stack_max, int stack_min);
 void	sort_3(t_stack *a);
 void	sort_2(t_stack *a);
 
-
 char	*get_next_line(int fd);
 char	*get_line(int fd);
 char	*ft_line_join(char *s1, char *s2);
 
-
 void	execute_instructions(t_stack *a, t_stack *b);
 void	exec_one_instruction(t_stack *a, t_stack *b, char *instruction);
 
-
 int		ft_strcmp(const char *s1, const char *s2);
 void	exit_error(int status);
+void	ft_print_ok(t_stack *a, t_stack *b);
 #endif
