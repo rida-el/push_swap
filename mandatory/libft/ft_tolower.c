@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mkhalid <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: rel-maza <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/05 11:41:44 by mkhalid           #+#    #+#             */
-/*   Updated: 2021/11/12 20:09:57 by mkhalid          ###   ########.fr       */
+/*   Created: 2021/11/05 11:41:44 by rel-maza           #+#    #+#             */
+/*   Updated: 2021/11/12 20:09:57 by rel-maza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_tolower(int c)
+int ft_tolower(int c)
 {
 	if (c >= 'A' && c <= 'Z')
 		return (c + 32);

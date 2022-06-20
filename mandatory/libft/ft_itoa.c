@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mkhalid <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: rel-maza <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/09 11:03:31 by mkhalid           #+#    #+#             */
-/*   Updated: 2021/11/12 19:58:53 by mkhalid          ###   ########.fr       */
+/*   Created: 2021/11/09 11:03:31 by rel-maza           #+#    #+#             */
+/*   Updated: 2021/11/12 19:58:53 by rel-maza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	get_size(int n)
+static int get_size(int n)
 {
-	int	size;
+	int size;
 
 	if (n == 0)
 		return (1);
@@ -27,18 +27,18 @@ static int	get_size(int n)
 	return (size);
 }
 
-static int	l_abs(int i)
+static int l_abs(int i)
 {
 	if (i < 0)
 		return (-i);
 	return (i);
 }
 
-char	*ft_itoa(int n)
+char *ft_itoa(int n)
 {
-	int		size;
-	char	*number;
-	int		sign;
+	int size;
+	char *number;
+	int sign;
 
 	sign = 1;
 	if (n < 0)

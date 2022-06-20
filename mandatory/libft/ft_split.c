@@ -3,19 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mkhalid <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: rel-maza <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/08 15:11:12 by mkhalid           #+#    #+#             */
-/*   Updated: 2021/11/13 17:26:36 by mkhalid          ###   ########.fr       */
+/*   Created: 2021/11/08 15:11:12 by rel-maza           #+#    #+#             */
+/*   Updated: 2021/11/13 17:26:36 by rel-maza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	split_counter(char *str, char c)
+static int split_counter(char *str, char c)
 {
-	int	i;
-	int	count;
+	int i;
+	int count;
 
 	i = 0;
 	count = 0;
@@ -26,7 +26,7 @@ static int	split_counter(char *str, char c)
 		if (c == 0)
 		{
 			count++;
-			break ;
+			break;
 		}
 		while (c && c == str[i])
 			i++;
@@ -35,9 +35,9 @@ static int	split_counter(char *str, char c)
 	return (count);
 }
 
-static int	word_counter(char *str, char c)
+static int word_counter(char *str, char c)
 {
-	int	count;
+	int count;
 
 	count = 0;
 	while (*str && c != *str)
@@ -48,17 +48,17 @@ static int	word_counter(char *str, char c)
 	return (count);
 }
 
-static void	free_res(char **result, int size)
+static void free_res(char **result, int size)
 {
 	while (size--)
 		free(result[size]);
 	free(result);
 }
 
-static char	*create_word(char *str, char c, char **word)
+static char *create_word(char *str, char c, char **word)
 {
-	int	wcount;
-	int	j;
+	int wcount;
+	int j;
 
 	wcount = word_counter(str, c);
 	*word = malloc(sizeof(char) * (wcount + 1));
@@ -73,11 +73,11 @@ static char	*create_word(char *str, char c, char **word)
 	return (str);
 }
 
-char	**ft_split(char const *str, char c)
+char **ft_split(char const *str, char c)
 {
-	char	**result;
-	int		spcount;
-	int		i;
+	char **result;
+	int spcount;
+	int i;
 
 	if (str == 0)
 		return (NULL);

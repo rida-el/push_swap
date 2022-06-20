@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mkhalid <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: rel-maza <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/05 11:51:46 by mkhalid           #+#    #+#             */
-/*   Updated: 2021/11/12 20:04:21 by mkhalid          ###   ########.fr       */
+/*   Created: 2021/11/05 11:51:46 by rel-maza           #+#    #+#             */
+/*   Updated: 2021/11/12 20:04:21 by rel-maza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strchr(const char *s, int c)
+char *ft_strchr(const char *s, int c)
 {
-	char	cc;
-	char	*ss;
+	char cc;
+	char *ss;
 
 	cc = (char)c;
 	ss = (char *)s;

@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   fst_lst_add_front.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mkhalid <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: rel-maza <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/11 18:29:15 by mkhalid           #+#    #+#             */
-/*   Updated: 2021/11/11 23:16:25 by mkhalid          ###   ########.fr       */
+/*   Created: 2021/11/11 18:29:15 by rel-maza           #+#    #+#             */
+/*   Updated: 2021/11/11 23:16:25 by rel-maza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstadd_front(t_list **lst, t_list *new)
+void ft_lstadd_front(t_list **lst, t_list *new)
 {
 	new->next = *lst;
 	*lst = new;

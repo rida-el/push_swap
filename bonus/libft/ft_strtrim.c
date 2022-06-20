@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mkhalid <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: rel-maza <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/08 13:36:54 by mkhalid           #+#    #+#             */
-/*   Updated: 2021/11/08 15:10:27 by mkhalid          ###   ########.fr       */
+/*   Created: 2021/11/08 13:36:54 by rel-maza           #+#    #+#             */
+/*   Updated: 2021/11/08 15:10:27 by rel-maza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static	int	is_from_set(char c, char const *set)
+static int is_from_set(char c, char const *set)
 {
-	int	i;
+	int i;
 
 	i = 0;
 	while (set[i])
@@ -26,12 +26,12 @@ static	int	is_from_set(char c, char const *set)
 	return (0);
 }
 
-char	*ft_strtrim(char const *s1, char const *set)
+char *ft_strtrim(char const *s1, char const *set)
 {
-	int		i;
-	int		start;
-	int		end;
-	char	*ret;
+	int i;
+	int start;
+	int end;
+	char *ret;
 
 	if (!s1)
 		return (0);
@@ -43,7 +43,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	while (i > start && is_from_set(s1[i], set))
 		i--;
 	end = i;
-	ret = malloc ((end - start + 1 + 1) * sizeof(char));
+	ret = malloc((end - start + 1 + 1) * sizeof(char));
 	if (!ret)
 		return (0);
 	i = 0;

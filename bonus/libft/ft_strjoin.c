@@ -3,20 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mkhalid <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: rel-maza <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/07 17:44:13 by mkhalid           #+#    #+#             */
-/*   Updated: 2021/11/13 13:25:53 by mkhalid          ###   ########.fr       */
+/*   Created: 2021/11/07 17:44:13 by rel-maza           #+#    #+#             */
+/*   Updated: 2021/11/13 13:25:53 by rel-maza          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strjoin(char const *s1, char const *s2)
+char *ft_strjoin(char const *s1, char const *s2)
 {
-	int		s1l;
-	int		s2l;
-	char	*join;
+	int s1l;
+	int s2l;
+	char *join;
 
 	if (!s1)
 		return (0);
